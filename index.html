@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Bon voyage — travel discovery and simple trip planning.">
+
+    <title>Bon voyage | Less scrolling. More exploring.</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="home">
+
+    <header class="site-header" data-header></header>
+
+    <main>
+        <section class="hero">
+            <div>
+                <p class="eyebrow">A considered way to travel</p>
+
+                <h1>Your next somewhere<br>starts here.</h1>
+
+                <p>
+                    Discover extraordinary places, collect your dream destinations,
+                    and plan your next escape.
+                </p>
+
+                <a class="button" href="explore.html">
+                    Explore Destinations
+                </a>
+
+                <form class="hero-search" id="home-search" role="search">
+                    <input
+                        aria-label="Search destinations"
+                        placeholder="Where would you like to go?"
+                    >
+                    <button type="submit">Search</button>
+                </form>
+
+                <p id="search-message" aria-live="polite"></p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow accent">Curated for you</p>
+                    <h2>Destinations with a point of view.</h2>
+                </div>
+
+                <a class="text-button" href="explore.html">
+                    See all destinations →
+                </a>
+            </div>
+
+            <div class="card-grid" id="featured-grid"></div>
+        </section>
+
+        <section class="editorial">
+            <div
+                class="editorial-image"
+                role="img"
+                aria-label="Woman looking across a scenic landscape"
+            ></div>
+
+            <div class="editorial-copy">
+                <p class="eyebrow accent">A quieter kind of travel</p>
+
+                <h2>The world is waiting.</h2>
+
+                <p>
+                    There is beauty in not rushing. In following a sunlit street,
+                    finding the table everyone remembers, and leaving just enough
+                    room in the itinerary for a little surprise.
+                </p>
+
+                <a class="text-button" href="explore.html">
+                    Find your somewhere →
+                </a>
+            </div>
+        </section>
+
+        <section class="cta">
+            <p class="eyebrow">Take the first step</p>
+
+            <h2>Make room for the places calling you.</h2>
+
+            <a class="button" href="plan.html">
+                Plan your next trip
+            </a>
+        </section>
+    </main>
+
+    <footer class="site-footer" data-footer></footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/common.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const picks = [
+                'cape-coast',
+                'marrakech',
+                'kyoto',
+                'santorini'
+            ];
+
+            const grid = document.querySelector('#featured-grid');
+
+            grid.innerHTML = picks.map(id => {
+                const d = destinationById(id);
+
+                return `
+                    <article class="destination-card">
+                        <img src="${d.image}" alt="${d.name}, ${d.country}">
+
+                        <div class="card-copy">
+                            <p class="country">${d.country}</p>
+                            <h3>${d.name}</h3>
+                            <p>${d.description}</p>
+
+                            <div class="card-actions">
+                                <span class="category">${d.category}</span>
+
+                                <a
+                                    class="text-button"
+                                    href="explore.html?destination=${d.id}"
+                                >
+                                    Discover →
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+
+            document.querySelector('#home-search').addEventListener('submit', e => {
+                e.preventDefault();
+
+                const term = e.currentTarget
+                    .querySelector('input')
+                    .value
+                    .trim()
+                    .toLowerCase();
+
+                const found = destinations.find(d =>
+                    `${d.name} ${d.country}`.toLowerCase().includes(term)
+                );
+
+                if (found) {
+                    location.href = `explore.html?destination=${found.id}`;
+                } else {
+                    document.querySelector('#search-message').textContent =
+                        term
+                            ? 'We could not find that destination yet. Try Cape Town or Kyoto.'
+                            : '';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

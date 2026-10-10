@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Build a simple personal trip plan with Bon voyage">
+
+    <title>Plan a Trip | Bon voyage</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="plan">
+
+    <header class="site-header" data-header></header>
+
+    <main>
+        <section class="page-intro">
+            <p class="eyebrow accent">Trip planner</p>
+
+            <h1>Your next escape.</h1>
+
+            <p>
+                Gather the details, make it yours, and let the anticipation begin.
+                All budget figures are illustrative planning estimates.
+            </p>
+        </section>
+
+        <section class="planner">
+            <form id="trip-form" class="form-card" novalidate>
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="trip-destination">Destination</label>
+
+                        <select id="trip-destination" required>
+                            <option value="">Choose a destination</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="travelers">Number of travelers</label>
+
+                        <input
+                            id="travelers"
+                            type="number"
+                            min="1"
+                            value="1"
+                            required
+                        >
+                    </div>
+
+                    <div class="field">
+                        <label for="departure">Departure date</label>
+
+                        <input
+                            id="departure"
+                            type="date"
+                            required
+                        >
+                    </div>
+
+                    <div class="field">
+                        <label for="return">Return date</label>
+
+                        <input
+                            id="return"
+                            type="date"
+                            required
+                        >
+                    </div>
+
+                    <div class="field">
+                        <label for="budget">Estimated budget (USD)</label>
+
+                        <input
+                            id="budget"
+                            type="number"
+                            min="1"
+                            placeholder="e.g. 2500"
+                            required
+                        >
+                    </div>
+
+                    <div class="field">
+                        <label for="style">Travel style</label>
+
+                        <select id="style" required>
+                            <option value="">Choose a style</option>
+                            <option>Budget</option>
+                            <option>Comfort</option>
+                            <option>Luxury</option>
+                        </select>
+                    </div>
+
+                    <div class="field full">
+                        <label for="notes">Notes & experiences</label>
+
+                        <textarea
+                            id="notes"
+                            placeholder="A market morning, a beautiful dinner, a long walk by the sea…"
+                        ></textarea>
+                    </div>
+                </div>
+
+                <p
+                    id="form-message"
+                    class="form-message"
+                    aria-live="polite"
+                ></p>
+
+                <button class="button" type="submit">
+                    Create My Trip
+                </button>
+            </form>
+
+            <section
+                id="trip-summary"
+                class="trip-summary"
+                hidden
+                aria-live="polite"
+            ></section>
+        </section>
+    </main>
+
+    <footer class="site-footer" data-footer></footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/plan.js"></script>
+
+</body>
+</html>

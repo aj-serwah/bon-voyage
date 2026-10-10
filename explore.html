@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Defines the character encoding -->
+    <meta charset="UTF-8">
+
+    <!-- Makes the website responsive on different screen sizes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Describes the Explore page -->
+    <meta name="description"
+          content="Explore curated destinations with Bon voyage">
+
+    <!-- Sets the browser tab title -->
+    <title>Explore | Bon voyage</title>
+
+    <!-- Links the HTML page to its CSS stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body data-page="explore">
+
+    <!-- Header: logo and navigation menu -->
+    <header class="site-header" data-header></header>
+
+    <!-- Main content of the Explore page -->
+    <main>
+
+        <!-- Introduction section -->
+        <section class="page-intro">
+
+            <!-- Small label above the main heading -->
+            <p class="eyebrow accent">The collection</p>
+
+            <!-- Main heading -->
+            <h1>Find your somewhere.</h1>
+
+            <!-- Introductory description -->
+            <p>
+                From coastal mornings to city nights,
+                discover places selected for the feeling
+                they leave with you.
+            </p>
+
+        </section>
+
+        <!-- Search bar and destination category filters -->
+        <section class="explore-tools">
+
+            <!-- Search form -->
+            <form class="search-row" role="search">
+
+                <!-- Input for searching destinations or countries -->
+                <input
+                    id="destination-search"
+                    aria-label="Search destinations or countries"
+                    placeholder="Search by destination or country"
+                >
+
+                <!-- Search button -->
+                <button type="submit">Search</button>
+
+            </form>
+
+            <!-- Buttons for filtering destinations by category -->
+            <div class="filters"
+                 aria-label="Destination category filters">
+
+                <button class="filter active" data-filter="All">
+                    All
+                </button>
+
+                <button class="filter" data-filter="Beach">
+                    Beach
+                </button>
+
+                <button class="filter" data-filter="City">
+                    City
+                </button>
+
+                <button class="filter" data-filter="Nature">
+                    Nature
+                </button>
+
+                <button class="filter" data-filter="Culture">
+                    Culture
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- Section displaying destination search results -->
+        <section class="section" style="padding-top: 0">
+
+            <!-- Displays the number of matching destinations -->
+            <p id="results-count"
+               class="muted"
+               aria-live="polite">
+            </p>
+
+            <!-- JavaScript inserts destination cards here -->
+            <div class="card-grid explore-grid"
+                 id="destination-grid">
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Modal window for viewing destination details -->
+    <div
+        class="modal"
+        id="destination-modal"
+        hidden
+        aria-hidden="true"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+    >
+
+        <!-- Content container for the modal -->
+        <div class="modal-card">
+
+            <!-- Button for closing the modal -->
+            <button class="modal-close" aria-label="Close details">
+                &times;
+            </button>
+
+            <!-- JavaScript inserts destination details here -->
+            <div id="modal-content"></div>
+
+        </div>
+
+    </div>
+
+    <!-- Footer section -->
+    <footer class="site-footer" data-footer></footer>
+
+    <!-- Loads destination data -->
+    <script src="js/data.js"></script>
+
+    <!-- Loads shared website features -->
+    <script src="js/common.js"></script>
+
+    <!-- Loads Explore page functionality -->
+    <script src="js/explore.js"></script>
+
+</body>
+</html>

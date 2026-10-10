@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Defines the character encoding -->
+    <meta charset="UTF-8">
+
+    <!-- Makes the website responsive on phones, tablets, and computers -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Describes the page for search engines -->
+    <meta name="description" content="Your saved travel destinations on Bon voyage">
+
+    <!-- Sets the title displayed on the browser tab -->
+    <title>My Bucket List | Bon voyage</title>
+
+    <!-- Connects this HTML page to its CSS stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body data-page="bucket">
+
+    <!-- Header: usually contains the logo and navigation menu -->
+    <header class="site-header" data-header></header>
+
+    <!-- Main: contains the primary content of the page -->
+    <main>
+
+        <!-- Introduction section for the bucket list page -->
+        <section class="page-intro">
+
+            <!-- Small introductory label -->
+            <p class="eyebrow accent">Your collection</p>
+
+            <!-- Main heading of the page -->
+            <h1>Places on my mind.</h1>
+
+            <!-- Short description of the bucket list -->
+            <p>
+                Hold on to the places you want to see.
+                When the moment is right, your next escape
+                will be waiting.
+            </p>
+
+        </section>
+
+        <!-- Section that displays the saved destinations -->
+        <section class="section" style="padding-top: 1rem">
+
+            <!-- JavaScript will insert the bucket list content here -->
+            <div id="bucket-content"></div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer: usually contains copyright and other links -->
+    <footer class="site-footer" data-footer></footer>
+
+    <!-- Loads the travel destination data -->
+    <script src="js/data.js"></script>
+
+    <!-- Loads shared website functionality -->
+    <script src="js/common.js"></script>
+
+    <!-- Loads the bucket list functionality -->
+    <script src="js/bucketlist.js"></script>
+
+</body>
+</html>
